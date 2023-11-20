@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    build: 
+      context: .
+    image: what-test
+    container_name: what-test-container
+    restart: always
+    command: python manage.py runserver 0.0.0.0:80
+    ports:
+      - "8000:80"
+    working_dir: /app
+    volumes:
+      - .:/app
+  
