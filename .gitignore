@@ -14,4 +14,6 @@ db.sqlite3
 .divio
 /data.tar.gz
 
+# Environment files
+.env
 env/

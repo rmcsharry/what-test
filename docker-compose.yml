@@ -1,5 +1,8 @@
 version: '3.8'
 
+volumes:
+  postgres_data:
+
 services:
   app:
     build: 
@@ -7,10 +10,37 @@ services:
     image: what-test
     container_name: what-test-container
     restart: always
-    command: python manage.py runserver 0.0.0.0:80
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:80"
     ports:
       - "8000:80"
     working_dir: /app
     volumes:
       - .:/app
-  
+    env_file:
+      - ./.env
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  postgres:
+    # the application's web service will use an off-the-shelf image
+    image: postgres:16.1-alpine3.18
+    restart: always
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      PGUSER: postgres
+    container_name: whattest-postgres-container
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      # This command checks if the database is ready, right on the source db server
+      test: "pg_isready -d postgres -U postgresmaster"
+      interval: 5s
+      timeout: 5s
+      retries: 5
