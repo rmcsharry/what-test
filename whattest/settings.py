@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'whattest.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASE_URL = os.environ.get('DATABASE_URL')
+DATABASE_URL = os.environ.get('DATABASE_URL', 'sqlite://:memory:')
 
 DATABASES = {
   'default': dj_database_url.parse(DATABASE_URL)

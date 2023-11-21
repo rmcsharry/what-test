@@ -18,4 +18,7 @@ RUN poetry config virtualenvs.create false
 # install dependencies
 RUN poetry install
 
+# Collect static files
+RUN python manage.py collectstatic --noinput
+
 CMD uwsgi --module=whattest.wsgi --http=0.0.0.0:80
