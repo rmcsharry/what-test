@@ -13,7 +13,7 @@ COPY . ${WORKDIR}
 # Install dependencies
 # install poetry
 RUN pip install poetry
-# disable virtualenv for peotry
+# disable virtualenv for poetry
 RUN poetry config virtualenvs.create false
 # install dependencies
 RUN poetry install
@@ -21,4 +21,5 @@ RUN poetry install
 # Collect static files
 RUN python manage.py collectstatic --noinput
 
+# Run server in divio cloud, locally compose file will override this
 CMD uwsgi --module=whattest.wsgi --http=0.0.0.0:80
