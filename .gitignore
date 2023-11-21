@@ -17,3 +17,7 @@ db.sqlite3
 # Environment files
 .env
 env/
+
+# sql files
+local_db.sql
+local_db.tar.gz
