@@ -19,20 +19,19 @@ services:
     volumes:
       - .:/app
     env_file:
-      - ./.env
+      - ./.env-local
     depends_on:
-      postgres:
+      database_default:
         condition: service_healthy
 
-  postgres:
+  database_default:
     # the application's web service will use an off-the-shelf image
     image: postgres:16.1-alpine3.18
     restart: always
     environment:
-      POSTGRES_DB: ${DB_NAME}
-      POSTGRES_USER: ${DB_USERNAME}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      PGUSER: postgres
+      POSTGRES_DB: "db"
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+      SERVICE_MANAGER: "fsm-postgres"
     container_name: whattest-postgres-container
     ports:
       - "5432:5432"
@@ -40,7 +39,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
       # This command checks if the database is ready, right on the source db server
-      test: "pg_isready -d postgres -U postgresmaster"
+      test: "pg_isready -d postgres -U postgres"
       interval: 5s
       timeout: 5s
       retries: 5

@@ -78,21 +78,9 @@ WSGI_APPLICATION = 'whattest.wsgi.application'
 
 DATABASE_URL = os.environ.get('DATABASE_URL')
 
-if DATABASE_URL:
-  DATABASES = {
-      'default': dj_database_url.parse(DATABASE_URL)
-    }
-else:
-  DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get('DB_NAME'),
-        "USER": os.environ.get('DB_USERNAME'),
-        "PASSWORD": os.environ.get('DB_PASSWORD'),
-        "HOST": os.environ.get('DB_HOST'),
-        "PORT": os.environ.get('DB_PORT'),
-    }
-  }
+DATABASES = {
+  'default': dj_database_url.parse(DATABASE_URL)
+}
 
 # DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql'
 
