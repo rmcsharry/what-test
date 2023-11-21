@@ -15,6 +15,7 @@ services:
     working_dir: /app
     volumes:
       - ".:/app:rw"
+      - "./data:/data:rw"
     env_file:
       - ./.env-local
     depends_on: 

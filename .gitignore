@@ -21,3 +21,6 @@ env/
 # sql files
 local_db.sql
 local_db.tar.gz
+
+# media files
+/data
