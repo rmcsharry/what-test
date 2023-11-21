@@ -22,12 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-yo%cfegpgyczc+h29ozd7_2ch#)6ky^)v)^*j54=lb#q1!2r)*'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-yo%cfegpgyczc+h29ozd7_2ch#)6ky^)v)^*j54=lb#q1!2r)*')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG') == "True"
-
-ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -144,3 +142,19 @@ DEFAULT_FILE_STORAGE = 'whattest.settings.DefaultStorageClass'
 # Local media files
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join('/data/media/')
+
+# Configure allowed hosts for divio cloud
+DIVIO_DOMAIN = os.environ.get('DOMAIN', '')
+
+DIVIO_DOMAIN_ALIASES = [
+    d.strip()
+    for d in os.environ.get('DOMAIN_ALIASES', '').split(',')
+    if d.strip()
+]
+DIVIO_DOMAIN_REDIRECTS = [
+    d.strip()
+    for d in os.environ.get('DOMAIN_REDIRECTS', '').split(',')
+    if d.strip()
+]
+
+ALLOWED_HOSTS = [DIVIO_DOMAIN] + DIVIO_DOMAIN_ALIASES + DIVIO_DOMAIN_REDIRECTS
