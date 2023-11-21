@@ -1,8 +1,5 @@
 version: '3.8'
 
-volumes:
-  postgres_data:
-
 services:
   app:
     build: 
@@ -20,9 +17,8 @@ services:
       - ".:/app:rw"
     env_file:
       - ./.env-local
-    depends_on:
-      database_default:
-        condition: service_healthy
+    depends_on: 
+      - database_default
 
   database_default:
     # the application's web service will use an off-the-shelf image
@@ -37,9 +33,3 @@ services:
       - "5432:5432"
     volumes:
       - ".:/app:rw"
-    healthcheck:
-      # This command checks if the database is ready, right on the source db server
-      test: "pg_isready -d postgres -U postgres"
-      interval: 5s
-      timeout: 5s
-      retries: 5
