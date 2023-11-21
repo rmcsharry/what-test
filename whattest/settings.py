@@ -163,3 +163,10 @@ ALLOWED_HOSTS = [DIVIO_DOMAIN] + DIVIO_DOMAIN_ALIASES + DIVIO_DOMAIN_REDIRECTS
 
 # Redirect to HTTPS by default, unless explicitly disabled
 SECURE_SSL_REDIRECT = os.environ.get('SECURE_SSL_REDIRECT') != "False"
+
+# CORS
+CORS_ALLOW_CREDENTIALS = True
+
+# TODO - use env vars once you know how to add them on DIVIO
+CORS_ORIGIN_WHITELIST = ['http://localhost:3000', 'https://what-fe-stage.us.aldryn.io']
+CSRF_TRUSTED_ORIGINS = ['localhost:3000', 'what-fe-stage.us.aldryn.io']
