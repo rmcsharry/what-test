@@ -324,7 +324,7 @@ COPY public.auth_permission (id, name, content_type_id, codename) FROM stdin;
 --
 
 COPY public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) FROM stdin;
-1	pbkdf2_sha256$600000$KO1ek5z9VjbajbCuDJKEi7$4WtXCnLybX1o1mTm7c8d85fMDNyly3qqO65wRSL5OnE=	\N	t	root			rmcsharry+root@gmail.com	t	t	2023-11-21 11:48:38.14688+00
+1	pbkdf2_sha256$600000$EFr4SgoSzmIB49KP3fGym7$4D+phmE3qOdhXVJUfKqhLM013ggs5e8hvgGLo48+RSQ=	\N	t	root			rmcsharry+root@gmail.com	t	t	2023-11-21 12:08:12.398099+00
 \.
 
 
@@ -371,24 +371,24 @@ COPY public.django_content_type (id, app_label, model) FROM stdin;
 --
 
 COPY public.django_migrations (id, app, name, applied) FROM stdin;
-1	contenttypes	0001_initial	2023-11-21 11:45:50.281915+00
-2	auth	0001_initial	2023-11-21 11:45:50.348682+00
-3	admin	0001_initial	2023-11-21 11:45:50.365111+00
-4	admin	0002_logentry_remove_auto_add	2023-11-21 11:45:50.369614+00
-5	admin	0003_logentry_add_action_flag_choices	2023-11-21 11:45:50.374375+00
-6	contenttypes	0002_remove_content_type_name	2023-11-21 11:45:50.382819+00
-7	auth	0002_alter_permission_name_max_length	2023-11-21 11:45:50.387642+00
-8	auth	0003_alter_user_email_max_length	2023-11-21 11:45:50.393887+00
-9	auth	0004_alter_user_username_opts	2023-11-21 11:45:50.398095+00
-10	auth	0005_alter_user_last_login_null	2023-11-21 11:45:50.402615+00
-11	auth	0006_require_contenttypes_0002	2023-11-21 11:45:50.404366+00
-12	auth	0007_alter_validators_add_error_messages	2023-11-21 11:45:50.408523+00
-13	auth	0008_alter_user_username_max_length	2023-11-21 11:45:50.417829+00
-14	auth	0009_alter_user_last_name_max_length	2023-11-21 11:45:50.427186+00
-15	auth	0010_alter_group_name_max_length	2023-11-21 11:45:50.43704+00
-16	auth	0011_update_proxy_permissions	2023-11-21 11:45:50.443441+00
-17	auth	0012_alter_user_first_name_max_length	2023-11-21 11:45:50.449357+00
-18	sessions	0001_initial	2023-11-21 11:45:50.46376+00
+1	contenttypes	0001_initial	2023-11-21 12:07:44.592395+00
+2	auth	0001_initial	2023-11-21 12:07:44.65887+00
+3	admin	0001_initial	2023-11-21 12:07:44.676812+00
+4	admin	0002_logentry_remove_auto_add	2023-11-21 12:07:44.681979+00
+5	admin	0003_logentry_add_action_flag_choices	2023-11-21 12:07:44.6866+00
+6	contenttypes	0002_remove_content_type_name	2023-11-21 12:07:44.694209+00
+7	auth	0002_alter_permission_name_max_length	2023-11-21 12:07:44.699095+00
+8	auth	0003_alter_user_email_max_length	2023-11-21 12:07:44.705193+00
+9	auth	0004_alter_user_username_opts	2023-11-21 12:07:44.709897+00
+10	auth	0005_alter_user_last_login_null	2023-11-21 12:07:44.714408+00
+11	auth	0006_require_contenttypes_0002	2023-11-21 12:07:44.716229+00
+12	auth	0007_alter_validators_add_error_messages	2023-11-21 12:07:44.720877+00
+13	auth	0008_alter_user_username_max_length	2023-11-21 12:07:44.734019+00
+14	auth	0009_alter_user_last_name_max_length	2023-11-21 12:07:44.742014+00
+15	auth	0010_alter_group_name_max_length	2023-11-21 12:07:44.750094+00
+16	auth	0011_update_proxy_permissions	2023-11-21 12:07:44.757563+00
+17	auth	0012_alter_user_first_name_max_length	2023-11-21 12:07:44.763308+00
+18	sessions	0001_initial	2023-11-21 12:07:44.783874+00
 \.
 
 
