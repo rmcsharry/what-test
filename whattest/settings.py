@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import dj_database_url
 from django_storage_url import dsn_configured_storage_class
+from corsheaders.defaults import default_headers
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'uploader',
+    'user_api.apps.UserApiConfig',
 ]
 
 MIDDLEWARE = [
@@ -166,7 +168,25 @@ SECURE_SSL_REDIRECT = os.environ.get('SECURE_SSL_REDIRECT') != "False"
 
 # CORS
 CORS_ALLOW_CREDENTIALS = True
-
 # TODO - use env vars once you know how to add them on DIVIO
-CORS_ORIGIN_WHITELIST = ['http://localhost:3000', 'https://what-fe-stage.us.aldryn.io']
-CSRF_TRUSTED_ORIGINS = ['localhost:3000', 'what-fe-stage.us.aldryn.io']
+
+# CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOW_HEADERS = default_headers + (
+    'Access-Control-Allow-Origin',
+)
+
+CORS_ALLOWED_ORIGINS = ['http://localhost', 'http://127.0.0.1', 'https://what-fe-stage.us.aldryn.io']
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1', 'http://what-fe-stage.us.aldryn.io']
+
+## User model
+AUTH_USER_MODEL = 'user_api.AppUser'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+}
