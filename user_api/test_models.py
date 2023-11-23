@@ -19,3 +19,9 @@ class AppUserModelTest(TestCase):
 
     def test_required_fields(self):
         self.assertEqual(AppUser.REQUIRED_FIELDS, ['username'])
+
+    def test_username_field(self):
+        self.assertEqual(AppUser.USERNAME_FIELD, 'email')
+
+    def test_default_is_staff(self):
+        self.assertFalse(self.user.is_staff)
