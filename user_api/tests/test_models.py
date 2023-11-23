@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import AppUser
+from user_api.models import AppUser
 
 class AppUserModelTest(TestCase):
     def setUp(self):
