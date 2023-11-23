@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'uploader',
     'user_api.apps.UserApiConfig',
     'product_api.apps.ProductApiConfig',
+    'django_seed',
 ]
 
 MIDDLEWARE = [
