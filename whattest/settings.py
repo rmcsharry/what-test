@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'uploader',
     'user_api.apps.UserApiConfig',
+    'product_api.apps.ProductApiConfig',
 ]
 
 MIDDLEWARE = [
