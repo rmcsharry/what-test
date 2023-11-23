@@ -27,6 +27,7 @@ urlpatterns = [
     path('csrf/', views.csrf),
     path('ping/', views.ping),
     path('api/', include('user_api.urls')),
+    path('api/', include('product_api.urls')),
 ]
 
 if settings.DEBUG:
