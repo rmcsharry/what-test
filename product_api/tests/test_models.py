@@ -4,7 +4,7 @@ This module contains test cases for the product api models in the application.
 It uses Django's TestCase class.
 """
 from django.test import TestCase
-from .models import Product
+from ..models import Product
 
 class ProductModelTest(TestCase):
     """
