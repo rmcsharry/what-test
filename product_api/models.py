@@ -17,6 +17,12 @@ class Product(models.Model):
     stock = models.IntegerField()
     selected = models.BooleanField(default=False)
 
+    class Meta:
+        """
+        Meta class for the Product model.
+        """
+        ordering = ['id']
+
     def __str__(self):
         """
         String representation of the Product model.

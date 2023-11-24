@@ -11,7 +11,7 @@ class ProductList(generics.ListCreateAPIView):
     """
     API view to retrieve list of products
     """
-    permission_classes = (AllowAny, )
+    # permission_classes = (AllowAny, )
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
