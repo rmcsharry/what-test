@@ -19,6 +19,7 @@ class UserRegister(APIView):
     API view for user registration.
     """
     permission_classes = (permissions.AllowAny,)
+    authentication_classes = (SessionAuthentication,)
 
     def post(self, request):
         """
@@ -28,6 +29,7 @@ class UserRegister(APIView):
         if serializer.is_valid(raise_exception=True):
             user = serializer.create(request.data)
             if user:
+                login(request, user) # Manually log the user in after registration
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(status=status.HTTP_400_BAD_REQUEST)
 
@@ -62,7 +64,9 @@ class UserLogout(APIView):
         Log out a user.
         """
         logout(request)
-        return Response(status=status.HTTP_200_OK)
+        response = Response(status=status.HTTP_200_OK)
+        response.delete_cookie('csrftoken')
+        return response
 
 
 class UserView(APIView):

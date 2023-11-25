@@ -2,6 +2,8 @@
 This module defines the Product views.
 """
 from rest_framework.permissions import AllowAny
+from rest_framework.authentication import SessionAuthentication
+from rest_framework import permissions
 from rest_framework import generics
 from .models import Product
 from .serializers import ProductSerializer
@@ -12,6 +14,8 @@ class ProductList(generics.ListAPIView):
     API view to search products or return all products.
     """
     serializer_class = ProductSerializer
+    permission_classes = (permissions.IsAuthenticated,)
+    authentication_classes = (SessionAuthentication,)
 
     def get_queryset(self):
         """
@@ -34,5 +38,8 @@ class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     API view to retrieve, update or delete a product.
     """
+    permission_classes = (permissions.IsAuthenticated,)
+    authentication_classes = (SessionAuthentication,)
+
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
