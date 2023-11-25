@@ -181,8 +181,8 @@ CORS_ALLOW_HEADERS = default_headers + (
     'Access-Control-Allow-Origin',
 )
 
-CORS_ALLOWED_ORIGINS = ['http://localhost', 'http://127.0.0.1', 'https://what-fe-stage.us.aldryn.io']
-CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1', 'https://what-fe-stage.us.aldryn.io']
+CORS_ALLOWED_ORIGINS = ['http://localhost', 'http://127.0.0.1', 'https://what-fe-stage.us.aldryn.io', 'https://what-fe.us.aldryn.io']
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1', 'https://what-fe-stage.us.aldryn.io', 'https://what-fe.us.aldryn.io']
 
 ## User model
 AUTH_USER_MODEL = 'user_api.AppUser'
