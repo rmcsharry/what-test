@@ -183,8 +183,8 @@ CORS_ALLOW_HEADERS = default_headers + (
 
 # TODO - use env vars once you know how to add them on DIVIO
 
-CORS_ALLOWED_ORIGINS = ['http://127.0.0.1', 'https://what-fe-stage.us.aldryn.io', 'https://what-fe.us.aldryn.io']
-CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1', 'https://what-fe-stage.us.aldryn.io', 'https://what-fe.us.aldryn.io']
+CORS_ALLOWED_ORIGINS = ['http://127.0.0.1', 'https://what-fe-stage.us.aldryn.io', 'https://what-fe.us.aldryn.io', 'https://*.us.aldryn.io']
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1', 'https://what-fe-stage.us.aldryn.io', 'https://what-fe.us.aldryn.io', 'https://*.us.aldryn.io']
 
 CSRF_COOKIE_DOMAIN = ".us.aldryn.io"
 SESSION_COOKIE_DOMAIN = ".us.aldryn.io"
