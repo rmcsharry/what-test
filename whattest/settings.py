@@ -186,8 +186,9 @@ CORS_ALLOW_HEADERS = default_headers + (
 CORS_ALLOWED_ORIGINS = ['http://127.0.0.1', 'https://what-fe-stage.us.aldryn.io', 'https://what-fe.us.aldryn.io', 'https://*.us.aldryn.io']
 CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1', 'https://what-fe-stage.us.aldryn.io', 'https://what-fe.us.aldryn.io', 'https://*.us.aldryn.io']
 
-CSRF_COOKIE_DOMAIN = ".us.aldryn.io"
-SESSION_COOKIE_DOMAIN = ".us.aldryn.io"
+if not DEBUG:
+  CSRF_COOKIE_DOMAIN = '.us.aldryn.io'
+  SESSION_COOKIE_DOMAIN = '.us.aldryn.io'
 
 ## User model
 AUTH_USER_MODEL = 'user_api.AppUser'
