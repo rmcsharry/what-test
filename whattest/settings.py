@@ -183,8 +183,8 @@ CORS_ALLOW_HEADERS = default_headers + (
 
 # TODO - use env vars once you know how to add them on DIVIO
 
-CORS_ALLOWED_ORIGINS = ['http://localhost', 'http://127.0.0.1', 'https://what-fe-stage.us.aldryn.io', 'https://what-fe.us.aldryn.io']
-CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1', 'https://what-fe-stage.us.aldryn.io', 'https://what-fe.us.aldryn.io']
+CORS_ALLOWED_ORIGINS = ['http://localhost', 'http://127.0.0.1', 'https://what-fe-stage.us.aldryn.io:443', 'https://what-fe.us.aldryn.io:443']
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1', 'https://what-fe-stage.us.aldryn.io:443', 'https://what-fe.us.aldryn.io:443']
 
 ## User model
 AUTH_USER_MODEL = 'user_api.AppUser'
