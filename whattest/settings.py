@@ -177,9 +177,7 @@ CSRF_COOKIE_NAME = "csrftoken"
 
 # CORS_ORIGIN_ALLOW_ALL = True
 
-CORS_ALLOW_HEADERS = default_headers + (
-    'Access-Control-Allow-Origin',
-)
+CORS_ALLOW_HEADERS = default_headers
 
 # TODO - use env vars once you know how to add them on DIVIO
 
